@@ -2,6 +2,7 @@ package ponent.service.impl;
 
 import com.github.pagehelper.PageInfo;
 import crowd.entity.Admin;
+import crowd.entity.AdminExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ponent.mapper.AdminMapper;
@@ -9,6 +10,7 @@ import ponent.service.api.AdminService;
 
 import java.util.List;
 @Service
+//声明事务
 public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminMapper adminMapper;
@@ -24,7 +26,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Admin> getAll() {
-        return null;
+        return adminMapper.selectByExample(new AdminExample());
     }
 
     @Override

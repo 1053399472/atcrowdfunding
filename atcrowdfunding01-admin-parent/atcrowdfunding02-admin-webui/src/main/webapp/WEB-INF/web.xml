@@ -41,7 +41,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!--配置DispatcherServlet（即配置SpringMVC的前端控制器）-->
+    <!--配置DispatcherServlet（即配置SpringMVC的前端控制器）SpringMVC由该Servlet处理-->
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -51,7 +51,7 @@
             <param-value>classpath:spring-web-mvc.xml</param-value>
         </init-param>
 
-        <!--使DispatcherServlet在Web应用启动时就创建对象并初始化-->
+        <!--DispatcherServlet创建对象后有大量的”框架初始化工作“，所以使DispatcherServlet在Web应用启动时就创建对象并初始化-->
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -60,6 +60,7 @@
         <!--
 			请求的扩展名应与预计的响应体格式相同
 			要求json数据则后缀.json;	要求页面则后缀.html
+			使用该servlet处理.html和.json
 		-->
         <url-pattern>*.html</url-pattern>
         <url-pattern>*.json</url-pattern>
