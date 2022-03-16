@@ -21,4 +21,8 @@ public class TestHandler {
 
         return "target";
     }
+    @RequestMapping("send/array/two.html")
+    public String testTwoArray(){
+        return "target";
+    }
 }

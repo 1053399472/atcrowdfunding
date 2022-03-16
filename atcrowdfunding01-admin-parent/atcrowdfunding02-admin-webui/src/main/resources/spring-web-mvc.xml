@@ -23,9 +23,7 @@
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver" id="simpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
-                <!-- <prop key="java.lang.Exception">system-error</prop>-->
-                <!-- 通过xml配置AccessForbiddenException的异常映射 -->
-                <prop key="org.fall.exception.AccessForbiddenException">admin-login</prop>
+                <prop key="java.lang.Exception">system-error</prop>
             </props>
         </property>
     </bean>
