@@ -11,9 +11,14 @@
     <title>测试</title>
     <base href="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/">
     <script type="text/javascript" src="jquery/jquery.js"></script>
+    <script src="layer/layer.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         $(function () {
-
+            //准备要发送的数据
+            var array=[5,8,12];
+            //必须先将目标转换成JSON字符串
+            var arrayStr = JSON.stringify(array);
             //btn1
             //此方式可以在浏览器看到发送的请求体是Form Data(表单数据)
             $("#btn1").click(function () {
@@ -44,6 +49,7 @@
                     type: "post",
                     data: arrayStr,
                     dataType: "text",
+                    //想要什么类型
                     contentType: "application/json;charset=UTF-8",  //告诉服务器端当前请求的请求体是JSON格式
                     success: function (response) {
                         alert(response);
@@ -120,6 +126,12 @@
 
             });
             //btn4
+            //btn5
+            $("#btn5").click(function () {
+                // alert("nihao");
+                layer.msg("1111");
+            });
+
         });
     </script>
 </head>
@@ -132,5 +144,6 @@
 <button id="btn3">Test Compose Object</button>
 <br/><br/>
 <button id="btn4">Test ResultEntity</button>
+<button id="btn5">Test layer</button>
 </body>
 </html>

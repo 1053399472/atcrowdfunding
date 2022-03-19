@@ -15,7 +15,7 @@ import java.io.IOException;
 @ControllerAdvice
 public class CrowdExceptionResolver {
 
-    //处理空指针异常
+    //处理空指针异常,将某个异常与方法关联起来
     @ExceptionHandler(value = {NullPointerException.class})
     public ModelAndView resolveNullPointerException(NullPointerException exception,
                                                     HttpServletRequest request, HttpServletResponse response
